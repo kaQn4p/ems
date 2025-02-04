@@ -1,0 +1,50 @@
+:root {
+    /* Offizielle EU-Farbpalette */
+    --eu-blue: #003399;     /* Dunkelblau */
+    --eu-yellow: #FFCC00;   /* Goldgelb */
+    --eu-background: #F0F2F5; /* Heller Grauton */
+    --eu-text-dark: #333333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--eu-background);
+    color: var(--eu-text-dark);
+    line-height: 1.6;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,51,153,0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,51,153,0.15);
+}
+
+.btn-eu {
+    background: linear-gradient(45deg, var(--eu-blue), #0055CC);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.btn-eu:hover {
+    background: linear-gradient(45deg, var(--eu-yellow), #FFD700);
+    color: var(--eu-blue);
+    transform: scale(1.05);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
