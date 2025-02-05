@@ -2,7 +2,6 @@ package de.ems.service;
 
 import org.bytedream.untis4j.Session;
 import org.springframework.stereotype.Service;
-import org.bytedream.untis4j.Response;
 
 @Service
 public class WebuntisVerificationService {
