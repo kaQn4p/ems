@@ -13,6 +13,7 @@ public class ErasmusManagementSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ErasmusManagementSystemApplication.class, args);
+		//das ist ein Testkommentar 
 	}
 
 }
