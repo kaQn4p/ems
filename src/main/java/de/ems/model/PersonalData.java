@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class PersonalData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotBlank(message = "Name ist erforderlich")
     private String lastName;
@@ -24,9 +24,6 @@ public class PersonalData {
     @Past(message = "Geburtsdatum muss in der Vergangenheit liegen")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
-
-    @NotBlank(message = "Nationalität ist erforderlich")
-    private String nationality;
 
     @NotBlank(message = "E-Mail ist erforderlich")
     @Email(message = "Bitte geben Sie eine gültige E-Mail-Adresse ein")
@@ -49,11 +46,19 @@ public class PersonalData {
     @Min(value = 2024, message = "Das Abschlussjahr muss 2024 oder später sein")
     private Integer graduationYear;
 
-	public Long getId() {
+    public PersonalData(String id) {
+    	setId(id);
+    }
+    
+    public PersonalData() {
+    	
+    }
+    
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -87,14 +92,6 @@ public class PersonalData {
 
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getNationality() {
-		return nationality;
-	}
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
 	}
 
 	public String getEmail() {
