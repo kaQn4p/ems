@@ -25,9 +25,9 @@
 			<form th:action="@{/submit-personal-data}" th:object="${personalData}" method="post">
 								<div class="row">
 									<div class="col-md-6 mb-3">
-								        <label for="id" class="form-label">Benutzername</label>
-								        <input type="text" class="form-control" id="id" th:field="*{id}" disabled="disabled" required>
-								        <div class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+								        <label for="username" class="form-label">Benutzername</label>
+								        <input type="text" class="form-control" id="username" th:field="*{username}" disabled="disabled">
+								        <div class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
 								    </div>
 								</div>				
 				

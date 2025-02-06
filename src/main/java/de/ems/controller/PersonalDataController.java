@@ -8,12 +8,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.ems.model.PersonalData;
 import de.ems.repository.PersonalDataRepository;
 import jakarta.validation.Valid;
 
 @Controller
+@SessionAttributes("username") // Session-Attribut hinzufügen
 public class PersonalDataController {
 	
 	 private final PersonalDataRepository repository;
@@ -26,35 +28,44 @@ public class PersonalDataController {
 		        "Frühling", "Sommer", "Herbst", "Winter"
 		    );
 
-    @GetMapping("/personal-data")
-    public String showPersonalDataForm(Model model, @ModelAttribute String id) {
-    	
-        model.addAttribute("personalData", new PersonalData((String)model.getAttribute("id")));
-        model.addAttribute("seasons", SEASONS);
-        return "personal-data-form";
-    }
+	  @GetMapping("/personal-data")
+	    public String showPersonalDataForm(Model model) {
+	        // PersonalData mit Benutzernamen aus Session initialisieren
+	        PersonalData personalData = new PersonalData();
+	        personalData.setUsername((String) model.getAttribute("username"));
+	        
+	        model.addAttribute("personalData", personalData);
+	        model.addAttribute("seasons", SEASONS);
+	        return "personal-data-form";
+	    }
 
-    @PostMapping("/submit-personal-data")
-    public String submitPersonalData(@Valid PersonalData personalData, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("seasons", SEASONS);
-            return "personal-data-form";
-        }
-        
-        // Datenverarbeitung
-        PersonalData existing = repository.findByUsername(personalData.getId());
-        if(existing != null) {
-            // Update bestehenden Datensatz
-//            existing.setField1(personalData.getField1());
-//            existing.setField2(personalData.getField2());
-            repository.save(existing);
-        } else {
-            // Neuen Datensatz erstellen
-            repository.save(personalData);
-        }
-        
-        
-        return "redirect:/company-contact";
-    }
+
+	 @PostMapping("/submit-personal-data")
+	    public String submitPersonalData(
+	        @Valid @ModelAttribute PersonalData personalData,
+	        BindingResult bindingResult,
+	        @ModelAttribute("username") String username) {
+	        
+	        if (bindingResult.hasErrors()) {
+	            return "personal-data-form";
+	        }
+	     
+	     // Benutzername aus Session zur Sicherheit überprüfen
+//	     String sessionUsername = (String) session.getAttribute("username");
+//	     personalData.setUsername(sessionUsername);
+	     
+	     // Speicherlogik
+	     PersonalData existing = repository.findByUsername(personalData.getUsername());
+	     if(existing != null) {
+	         // Update bestehender Datensatz
+//	         existing.updateFrom(personalData);
+//	         repository.save(existing);
+	     } else {
+	         repository.save(personalData);
+	     }
+	     
+	     return "redirect:/company-contact";
+	 }
+
     
 }

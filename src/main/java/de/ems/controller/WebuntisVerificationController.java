@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.servlet.http.HttpSession;
 
 import ch.qos.logback.core.model.Model;
 import de.ems.service.WebuntisVerificationService;
@@ -22,11 +23,11 @@ public class WebuntisVerificationController {
     }
     
     @PostMapping("/verify-webuntis")
-    public String verifyWebuntis(@RequestParam String username, @RequestParam String password, Model model, RedirectAttributes redirectAttributes) {
+    public String verifyWebuntis(@RequestParam String username, @RequestParam String password, Model model, RedirectAttributes redirectAttributes, HttpSession session) {
         boolean isVerified = webuntisService.verifyCredentials(username, password);
         
         if (isVerified) {
-        	redirectAttributes.addFlashAttribute("id", username);
+        	session.setAttribute("username", username);
             return "redirect:/personal-data";
         } else {
 //            model.addAttribute("error", "Die Anmeldung bei Webuntis war nicht erfolgreich. Bitte überprüfen Sie Ihre Eingaben.");

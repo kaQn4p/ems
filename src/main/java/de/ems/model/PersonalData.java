@@ -9,8 +9,11 @@ import java.time.LocalDate;
 public class PersonalData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
+    @NotBlank(message = "Benutzername ist erforderlich")
+    private String username;
+    
     @NotBlank(message = "Name ist erforderlich")
     private String lastName;
 
@@ -46,19 +49,23 @@ public class PersonalData {
     @Min(value = 2024, message = "Das Abschlussjahr muss 2024 oder später sein")
     private Integer graduationYear;
 
-    public PersonalData(String id) {
+    public PersonalData(Long id) {
     	setId(id);
+    }
+    
+    public PersonalData(String username) {
+    	setUsername(username);
     }
     
     public PersonalData() {
     	
     }
     
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -140,6 +147,14 @@ public class PersonalData {
 
 	public void setGraduationYear(Integer graduationYear) {
 		this.graduationYear = graduationYear;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
     
