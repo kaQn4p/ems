@@ -19,10 +19,9 @@
     <div class="container">
         <div class="info-card">
             <h1 class="eu-header text-center mb-4">Schulzugehörigkeit verifizieren</h1>
-            <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Schritt 2 von 4</div>
-            </div>
-			Bitte weisen Sie Ihre Schulzugehörigkeit nach, indem Sie sich bei webuntis anmelden.
+			<p>
+				Bitte weisen Sie Ihre Schulzugehörigkeit nach, indem Sie sich bei webuntis anmelden.
+			</p>
             <form th:action="@{/verify-webuntis}" method="post">
                 <div class="mb-3">
                     <label for="username" class="form-label">Webuntis Benutzername</label>

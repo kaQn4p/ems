@@ -17,9 +17,9 @@ public class WebuntisVerificationController {
     @Autowired
     private WebuntisVerificationService webuntisService;
 
-    @GetMapping("/verify-webuntis")
+    @GetMapping("/")
     public String showWebuntisVerificationForm(Model model) {
-        return "webuntis-verification";
+        return "verify-webuntis";
     }
     
     @PostMapping("/verify-webuntis")
@@ -28,10 +28,10 @@ public class WebuntisVerificationController {
         
         if (isVerified) {
         	session.setAttribute("username", username);
-            return "redirect:/personal-data";
+            return "redirect:/interest";
         } else {
 //            model.addAttribute("error", "Die Anmeldung bei Webuntis war nicht erfolgreich. Bitte überprüfen Sie Ihre Eingaben.");
-            return "webuntis-verification";
+            return "verify-webuntis";
         }
     }
 }

@@ -11,6 +11,8 @@ body {
     background-color: var(--eu-background);
     color: var(--eu-text-dark);
     line-height: 1.6;
+	padding: 20px;
+	margin: 0;
 }
 
 .card {
@@ -113,4 +115,43 @@ body {
     .eu-header-logos, .eu-footer-logos {
         flex-direction: column;
     }
+}
+
+h1,
+h2 {
+	color: #003399;
+}
+
+.section {
+	display: none;
+	margin-bottom: 30px;
+}
+
+.active {
+	display: block;
+}
+
+form {
+	max-width: 600px;
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+}
+
+input,
+select {
+	width: 100%;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+button {
+	background-color: #003399;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	cursor: pointer;
+	margin-top: 20px;
 }
