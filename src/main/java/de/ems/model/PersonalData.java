@@ -8,10 +8,7 @@ import java.time.LocalDate;
 @Entity
 public class PersonalData {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	@NotBlank(message = "Benutzername ist erforderlich")
 	private String username;
 
 	@NotBlank(message = "Name ist erforderlich")
@@ -94,24 +91,12 @@ public class PersonalData {
 		this.phone = phone;
 	}
 
-	public PersonalData(Long id) {
-		setId(id);
-	}
-
 	public PersonalData(String username) {
 		setUsername(username);
 	}
 
 	public PersonalData() {
 
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getLastName() {

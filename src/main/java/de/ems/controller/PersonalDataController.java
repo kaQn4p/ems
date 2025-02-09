@@ -46,6 +46,8 @@ public class PersonalDataController {
 	        BindingResult bindingResult,
 	        @ModelAttribute("username") String username) {
 	        
+		 	personalData.setUsername(username);
+		 
 	        if (bindingResult.hasErrors()) {
 	            return "personal-data-form";
 	        }
@@ -64,7 +66,7 @@ public class PersonalDataController {
 	         repository.save(personalData);
 	     }
 	     
-	     return "redirect:/company-contact";
+	     return "redirect:/success";
 	 }
 
     
