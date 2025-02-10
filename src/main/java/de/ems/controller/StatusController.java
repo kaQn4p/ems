@@ -1,5 +1,9 @@
 package de.ems.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.ems.model.PersonalData;
 import de.ems.repository.PersonalDataRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Controller
@@ -19,6 +20,8 @@ import jakarta.transaction.Transactional;
 public class StatusController {
 
     private final PersonalDataRepository repository;
+    
+    private static final String UPLOAD_DIR = "uploads";
 
     public StatusController(PersonalDataRepository repository) {
         this.repository = repository;
@@ -38,6 +41,15 @@ public class StatusController {
     @Transactional
     public String deleteProfile(@SessionAttribute("username") String username) {
 	    repository.deleteByUsername(username);
+	    
+	    File uploadDir = new File(UPLOAD_DIR + "/" + username);
+        if (uploadDir.exists()) {
+        	try {
+				FileUtils.deleteDirectory(uploadDir);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        }
       
         return "redirect:/";
     }

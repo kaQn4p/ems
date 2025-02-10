@@ -15,6 +15,15 @@ body {
 	margin: 0;
 }
 
+.privacy-section label {
+  display: flex;
+  align-items: center;
+}
+
+.privacy-section input[type="checkbox"] {
+  margin-right: 10px; /* Abstand zwischen Checkbox und Text */
+}
+
 .card {
     border: none;
     border-radius: 12px;
