@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.ems.model.PersonalData;
 import de.ems.repository.PersonalDataRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Controller
 @SessionAttributes("username")
@@ -31,8 +35,10 @@ public class StatusController {
     }
 
     @PostMapping("/deleteProfile")
+    @Transactional
     public String deleteProfile(@SessionAttribute("username") String username) {
-        repository.deleteByUsername(username);
+	    repository.deleteByUsername(username);
+      
         return "redirect:/";
     }
 }
