@@ -14,5 +14,6 @@ CREATE TABLE personal_data (
     contact_person VARCHAR(255) NOT NULL,
     company_email VARCHAR(255) NOT NULL,
     phone VARCHAR(255) NOT NULL,
-    status VARCHAR(255) NOT NULL
+    status VARCHAR(255) NOT NULL,
+    interest_signature VARCHAR(255) NOT NULL
 );

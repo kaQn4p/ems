@@ -57,14 +57,6 @@ public class PersonalData {
 
     private String status;
 	
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	@NotBlank(message = "E-Mail ist erforderlich")
 	@Email(message = "Bitte geben Sie eine gültige E-Mail-Adresse ein")
 	private String companyEmail;
@@ -72,128 +64,146 @@ public class PersonalData {
 	@NotBlank(message = "Telefonnummer ist erforderlich")
 	private String phone;
 
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getContactPerson() {
-		return contactPerson;
-	}
-
-	public void setContactPerson(String contactPerson) {
-		this.contactPerson = contactPerson;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public PersonalData(String username) {
-		setUsername(username);
-	}
+	private String interestSignature;
 
 	public PersonalData() {
 
 	}
-
-	public String getLastName() {
-		return lastName;
+	
+	public PersonalData(String username) {
+		setUsername(username);
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getAddress() {
+    public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getCompanyEmail() {
-		return companyEmail;
-	}
-
-	public void setCompanyEmail(String companyEmail) {
-		this.companyEmail = companyEmail;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getClassName() {
+    public String getClassName() {
 		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
 	}
 
 	public String getClassTeacher() {
 		return classTeacher;
 	}
 
-	public void setClassTeacher(String classTeacher) {
-		this.classTeacher = classTeacher;
+	public String getCompanyEmail() {
+		return companyEmail;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public String getContactPerson() {
+		return contactPerson;
+	}
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getFirstName() {
+		return firstName;
 	}
 
 	public String getGraduationPeriod() {
 		return graduationPeriod;
 	}
 
-	public void setGraduationPeriod(String graduationPeriod) {
-		this.graduationPeriod = graduationPeriod;
-	}
-
 	public Integer getGraduationYear() {
 		return graduationYear;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public String getInterestSignature() {
+        return interestSignature;
+    }
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public void setClassTeacher(String classTeacher) {
+		this.classTeacher = classTeacher;
+	}
+
+	public void setCompanyEmail(String companyEmail) {
+		this.companyEmail = companyEmail;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public void setContactPerson(String contactPerson) {
+		this.contactPerson = contactPerson;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setGraduationPeriod(String graduationPeriod) {
+		this.graduationPeriod = graduationPeriod;
 	}
 
 	public void setGraduationYear(Integer graduationYear) {
 		this.graduationYear = graduationYear;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setInterestSignature(String interestSignature) {
+        this.interestSignature = interestSignature;
+    }
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setUsername(String username) {
