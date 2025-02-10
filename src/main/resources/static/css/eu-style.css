@@ -155,3 +155,18 @@ button {
 	cursor: pointer;
 	margin-top: 20px;
 }
+
+.status-indicator {
+    margin-left: 20px;
+}
+
+.status-box {
+    padding: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}

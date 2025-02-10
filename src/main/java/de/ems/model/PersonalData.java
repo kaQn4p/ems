@@ -7,8 +7,13 @@ import java.time.LocalDate;
 
 @Entity
 public class PersonalData {
+	
+	
+    public enum Status {
+        WAITING_FOR_COMPANY
+    }
+	
 	@Id
-
 	private String username;
 
 	@NotBlank(message = "Name ist erforderlich")
@@ -51,6 +56,17 @@ public class PersonalData {
 
 	@NotBlank(message = "Ansprechpartner ist erforderlich")
 	private String contactPerson;
+
+	@Enumerated(EnumType.STRING)
+    private Status status;
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	@NotBlank(message = "E-Mail ist erforderlich")
 	@Email(message = "Bitte geben Sie eine gültige E-Mail-Adresse ein")
