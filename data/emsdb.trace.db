@@ -436,3 +436,15 @@ Wrong user name or password [28000-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 50 more
+2025-02-10 12:56:01.679285+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE [*]* FROM PERSONAL_DATA"; erwartet "identifier"
+Syntax error in SQL statement "DELETE [*]* FROM PERSONAL_DATA"; expected "identifier"; SQL statement:
+DELETE * FROM PERSONAL_DATA [42001-232]
+2025-02-10 12:58:11.769500+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "[*]DELTE FROM PERSONAL_DATA"; erwartet "DELETE, DROP"
+Syntax error in SQL statement "[*]DELTE FROM PERSONAL_DATA"; expected "DELETE, DROP"; SQL statement:
+DELTE FROM PERSONAL_DATA [42001-232]
+2025-02-10 12:58:15.381849+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "[*]DELTE * FROM PERSONAL_DATA"; erwartet "DELETE, DROP"
+Syntax error in SQL statement "[*]DELTE * FROM PERSONAL_DATA"; expected "DELETE, DROP"; SQL statement:
+DELTE * FROM PERSONAL_DATA [42001-232]

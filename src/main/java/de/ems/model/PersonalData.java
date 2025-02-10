@@ -9,9 +9,7 @@ import java.time.LocalDate;
 public class PersonalData {
 	
 	
-    public enum Status {
-        WAITING_FOR_COMPANY
-    }
+    public static final String STATUS_WAITING_FOR_COMPANY = "WAITING_FOR_COMPANY";
 	
 	@Id
 	private String username;
@@ -57,14 +55,13 @@ public class PersonalData {
 	@NotBlank(message = "Ansprechpartner ist erforderlich")
 	private String contactPerson;
 
-	@Enumerated(EnumType.STRING)
-    private Status status;
+    private String status;
 	
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
