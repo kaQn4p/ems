@@ -9,4 +9,5 @@ public interface PersonalDataRepository extends JpaRepository<PersonalData, Stri
     
     @Transactional
     void deleteByUsername(String username);
+    
 }
