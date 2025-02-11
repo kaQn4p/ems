@@ -20,8 +20,81 @@ body {
   align-items: center;
 }
 
+.eu-table {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.eu-table th,
+.eu-table td {
+  padding: 8px 12px;
+}
+
+@media (max-width: 768px) {
+  .eu-table {
+    font-size: 13px;
+  }
+  
+  .eu-table th,
+  .eu-table td {
+    padding: 6px 8px;
+  }
+}
+
+.compact-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.compact-form .form-group {
+  margin-bottom: 10px;
+}
+
+.compact-form label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.compact-form input,
+.compact-form select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.compact-form input[type="date"] {
+  width: auto;
+}
+
 .privacy-section input[type="checkbox"] {
   margin-right: 10px; /* Abstand zwischen Checkbox und Text */
+}
+
+.upload-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.upload-container > div {
+  flex: 1 1 calc(25% - 15px);
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .upload-container > div {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-container > div {
+    flex-basis: 100%;
+  }
 }
 
 .card {

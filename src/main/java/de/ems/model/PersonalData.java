@@ -9,7 +9,8 @@ import java.time.LocalDate;
 public class PersonalData {
 	
 	
-    public static final String STATUS_WAITING_FOR_COMPANY = "WAITING_FOR_COMPANY";
+    public static final String STATUS_WAITING_FOR_SIGNATURES = "WAITING_FOR_SIGNATURES";
+    public static final String STATUS_CHECKING_INTEREST = "CHECKING_INTEREST";
 	
 	@Id
 	private String username;
@@ -63,8 +64,6 @@ public class PersonalData {
 
 	@NotBlank(message = "Telefonnummer ist erforderlich")
 	private String phone;
-
-	private String interestSignature;
 
 	public PersonalData() {
 
@@ -130,10 +129,6 @@ public class PersonalData {
 		return phoneNumber;
 	}
 
-	public String getInterestSignature() {
-        return interestSignature;
-    }
-
 	public String getStatus() {
 		return status;
 	}
@@ -197,10 +192,6 @@ public class PersonalData {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-	public void setInterestSignature(String interestSignature) {
-        this.interestSignature = interestSignature;
-    }
 
 	public void setStatus(String status) {
 		this.status = status;
