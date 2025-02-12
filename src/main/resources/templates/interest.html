@@ -28,53 +28,6 @@
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>EU-Mobilitätsprogramm für Auszubildende</title>
-			<style>
-				body {
-					font-family: Arial, sans-serif;
-					line-height: 1.6;
-					margin: 0;
-					padding: 20px;
-				}
-
-				h1,
-				h2 {
-					color: #003399;
-				}
-
-				.section {
-					display: none;
-					margin-bottom: 30px;
-				}
-
-				.active {
-					display: block;
-				}
-
-				form {
-					max-width: 600px;
-				}
-
-				label {
-					display: block;
-					margin-top: 10px;
-				}
-
-				input,
-				select {
-					width: 100%;
-					padding: 5px;
-					margin-top: 5px;
-				}
-
-				button {
-					background-color: #003399;
-					color: white;
-					padding: 10px 15px;
-					border: none;
-					cursor: pointer;
-					margin-top: 20px;
-				}
-			</style>
 		</head>
 
 		<body>
@@ -84,7 +37,7 @@
 					<div class="info-card">
 						<div class="progress mb-4">
 							<div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20"
-								aria-valuemin="0" aria-valuemax="100">Schritt 1 von 5</div>
+								aria-valuemin="0" aria-valuemax="100">Schritt 1 von 3</div>
 						</div>
 						<div class="highlight">
 							<p class="mb-0">
@@ -102,7 +55,7 @@
 
 						<div class="row">
 							<div class="col-md-6">
-								<h3>Unsere Partnerländer</h3>
+								<h2>Unsere Partnerländer</h2>
 								<ul class="list-unstyled">
 									<li><span class="fi fi-es"></span> Spanien</li>
 									<li><span class="fi fi-it"></span> Italien</li>
@@ -116,7 +69,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="highlight">
-									<h4>Wichtige Eckdaten</h4>
+									<h2>Wichtige Eckdaten</h2>
 									<ul>
 										<li>Dauer: 4 Wochen</li>
 										<li>Finanzierung: Erasmus+</li>
@@ -126,18 +79,34 @@
 							</div>
 						</div>
 
-						<div class="contact-info">
-							<h3>Kontakt</h3>
-							<p>
-								Bei Rückfragen wenden Sie sich bitte an:<br>
-								<strong>Iris Luongo-Schnitzler</strong> (luongo-schnitzler@cuno1.de)<br>
-								<strong>Alexander Einhoff</strong> (einhoff@cuno1.de)
-							</p>
+						<div class="row">
+							<div class="col-md-6">
+								<h2>Kontakt</h2>
+								<p>Bei Rückfragen wenden Sie sich bitte an:</p>
+								<p><strong>Iris Luongo-Schnitzler</strong> (luongo-schnitzler@cuno1.de)</p>
+								<p><strong>Alexander Einhoff</strong> (einhoff@cuno1.de)</p>
+							</div>
+							<div class="col-md-6">
+								<h2>Informationen zur Durchführung</h2>
+								<p>Generelle Informationen zur Durchführung des Programms und über dessen genauen Ablauf
+									finden Sie im folgenden Dokument:
+									<a href="/files/Info-TN-Betrieb_Erasmus_2024_09_10.pdf"
+										target="_blank">Informationen für Teilnehmende und Betriebe</a>
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
+				<pp>
+					<label for="information-checkbox" style="display: flex;">
+						<input type="checkbox" id="information-checkbox" style="margin-right: 10px;">
+						Ich habe die verlinkten Informationen rund um den Ablauf einer EU-Mobilität gelesen und
+						verstanden.
+					</label>
+				</pp>
 				<div class="text-center">
-					<button onclick="nextSection('privacy')" class="btn btn-eu">Weiter</button>
+					<button onclick="nextSection('privacy')" class="btn btn-eu" id="information-weiter"
+						disabled>Weiter</button>
 				</div>
 			</div>
 
@@ -147,10 +116,10 @@
 					<div class="info-card">
 						<div class="progress mb-4">
 							<div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40"
-								aria-valuemin="0" aria-valuemax="100">Schritt 2 von 5</div>
+								aria-valuemin="0" aria-valuemax="100">Schritt 2 von 3</div>
 						</div>
 						<div class="mb-4">
-							<h3>Speicherung und Verarbeitung Ihrer Daten</h3>
+							<h2>Speicherung und Verarbeitung Ihrer Daten</h2>
 							<p>Wir möchten Sie darüber informieren, dass die von Ihnen angegebenen personenbezogenen
 								Daten zum Zweck der Durchführung des EU-Mobilitätsprogramms gespeichert und verarbeitet
 								werden. Dies umfasst:</p>
@@ -163,18 +132,33 @@
 								EU-Mobilitätsprogramms verwendet und nicht an Dritte weitergegeben, es sei denn, dies
 								ist für die Programmabwicklung erforderlich (z.B. an Partnerorganisationen im Ausland).
 							</p>
+							<p>
+								Des Weiteren bestätige ich, die einschlägigen Datenschutzinformationen für die
+								Verarbeitung
+								personenbezogener Daten der Erasmus+ - Koordination der EU gelesen zu haben. Diese sind
+								unter
+								dem folgenden Link zu finden: <a
+									href="https://webgate.ec.europa.eu/erasmus-esc/index/privacy-statement"
+									target="_blank">Datenschutzinformationen der Erasmus+ - Koordination der EU</a>.
+							</p>
 							<p>Sie haben jederzeit das Recht, Auskunft über Ihre gespeicherten Daten zu erhalten, diese
 								korrigieren oder löschen zu lassen. Bitte kontaktieren Sie uns dafür unter
-								[Kontakt-E-Mail-Adresse].</p>
+								erasmus@cuno1.de.</p>
 							<pp>
-								Ich habe die Datenschutzerklärung gelesen und bin mit der Speicherung und Verarbeitung
-								meiner Daten einverstanden.
+								<label for="privacy-checkbox" style="display: flex;">
+									<input type="checkbox" id="privacy-checkbox" style="margin-right: 10px;">
+									Ich erkläre ich mich einverstanden, dass meine personenbezogenen Daten für die
+									Verarbeitung
+									in die elektronischen Systeme zur Verwaltung der Erasmus+-Mobilitäten eingegeben
+									werden.
+								</label>
 							</pp>
 						</div>
 
 						<div class="text-center">
 							<button onclick="nextSection('info')" class="btn btn-eu">Zurück</button>
-							<button onclick="nextSection('personal')" class="btn btn-eu">Weiter</button>
+							<button onclick="nextSection('personal')" class="btn btn-eu" id="privacy-weiter"
+								disabled>Weiter</button>
 						</div>
 					</div>
 				</div>
@@ -185,21 +169,10 @@
 				<div class="container">
 					<div class="info-card">
 						<div class="progress mb-4">
-							<div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
-								aria-valuemin="0" aria-valuemax="100">Schritt 3 von 5</div>
+							<div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
+								aria-valuemin="0" aria-valuemax="100">Schritt 3 von 3</div>
 						</div>
-						<form th:action="@{/submit-personal-data}" th:object="${personalData}" method="post">
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="username" class="form-label">Benutzername</label>
-									<input type="text" class="form-control" id="username" th:field="*{username}"
-										disabled="disabled">
-									<div class="text-danger" th:if="${#fields.hasErrors('username')}"
-										th:errors="*{username}">
-									</div>
-								</div>
-							</div>
-
+						<form th:action="@{/submit-interest-data}" th:object="${personalData}" method="post">
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="firstName" class="form-label">Vorname</label>
@@ -293,63 +266,7 @@
 									<div class="text-danger" th:if="${#fields.hasErrors('graduationYear')}"
 										th:errors="*{graduationYear}"></div>
 								</div>
-
-								<div class="row mt-4">
-									<div class="col-12 text-center">
-										<button onclick="nextSection('privacy')" class="btn btn-eu">Zurück</button>
-										<button type="button" onclick="nextSection('company')"
-											class="btn btn-eu">Weiter</button>
-									</div>
-								</div>
-
 							</div>
-
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div id="signature" class="section">
-				<h1 class="eu-header text-center mb-4">Bestätigung der Daten</h1>
-				<div class="container">
-					<div class="info-card">
-
-						<div class="progress mb-4">
-							<div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
-								aria-valuemin="0" aria-valuemax="100">Schritt 5 von 5</div>
-						</div>
-						<form th:action="@{/submit-personal-data}" th:object="${personalData}" method="post">
-							<div class="row">
-								Mit meiner Unterschrift im nachfolgenden Feld bestätige ich die Korrektheit meiner Daten.
-							</div>
-							<div class="row">
-								<label for="signature">Unterschrift:</label>
-								<canvas id="signatureCanvas" width="300" height="100"
-									style="border:1px solid #000000;"></canvas>
-								<button type="button" onclick="clearSignature()" class="btn btn-eu">Unterschrift
-									löschen</button>
-							</div>
-							<div class="row mt-4">
-								<div class="col-12 text-center">
-									<button onclick="nextSection('company')" class="btn btn-eu">Zurück</button>
-									<button type="submit" id="interestButton" class="btn btn-eu" disabled>Interesse bekunden!</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-
-			<div id="company" class="section">
-				<h1 class="eu-header text-center mb-4">Betrieblicher Ansprechpartner</h1>
-				<div class="container">
-					<div class="info-card">
-
-						<div class="progress mb-4">
-							<div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
-								aria-valuemin="0" aria-valuemax="100">Schritt 4 von 5</div>
-						</div>
-						<form th:action="@{/submit-personal-data}" th:object="${personalData}" method="post">
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="companyName" class="form-label">Name des Betriebs</label>
@@ -381,11 +298,26 @@
 									</div>
 								</div>
 							</div>
+							<div class="row">
+								Mit meiner Unterschrift im nachfolgenden Feld bestätige ich die Korrektheit meiner
+								Daten.
+							</div>
+							<div class="row">
+								<label for="signature">Unterschrift:</label>
+								<canvas id="signatureCanvas" width="300" height="100"
+									style="border:1px solid #000000;"></canvas>
+								<input type="hidden" name="signatureData" id="signatureData" />
+								<button type="button" onclick="clearSignature()" class="btn btn-eu">Unterschrift
+									löschen</button>
+							</div>
 							<div class="row mt-4">
 								<div class="col-12 text-center">
-									<button onclick="nextSection('personal')" class="btn btn-eu">Zurück</button>
-									<button onclick="nextSection('signature')" class="btn btn-eu">Weiter</button>
+									<button onclick="nextSection('privacy')" class="btn btn-eu">Zurück</button>
+									<button type="submit" id="interestButton" onclick="prepareSignature()"
+										class="btn btn-eu" disabled>Interesse
+										bekunden!</button>
 								</div>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -403,56 +335,80 @@
 				canvas.addEventListener('mouseup', stopDrawing);
 				canvas.addEventListener('mouseout', stopDrawing);
 
-				function enableButton() {
-				    
-				}
-				
-				function getMousePos(canvas, evt) {
-					  var rect = canvas.getBoundingClientRect(), // abs. size of element
-					    scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for x
-					    scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for y
+				document.addEventListener('DOMContentLoaded', function () {
+					const checkbox = document.getElementById('privacy-checkbox');
+					const weiterButton = document.getElementById('privacy-weiter');
 
-					  return {
-					    x: (evt.clientX - rect.left) * scaleX,   // scale mouse coordinates after they have
-					    y: (evt.clientY - rect.top) * scaleY     // been adjusted to be relative to element
-					  }
+					checkbox.addEventListener('change', function () {
+						weiterButton.disabled = !this.checked;
+					});
+				});
+
+				document.addEventListener('DOMContentLoaded', function () {
+					const checkbox = document.getElementById('information-checkbox');
+					const weiterButton = document.getElementById('information-weiter');
+
+					checkbox.addEventListener('change', function () {
+						weiterButton.disabled = !this.checked;
+					});
+				});
+
+				function enableButton() {
+
+				}
+
+				function prepareSignature() {
+					var canvas = document.getElementById('signatureCanvas');
+					var signatureData = canvas.toDataURL('image/png');
+					document.getElementById('signatureData').value = signatureData;
+				}
+
+				function getMousePos(canvas, evt) {
+					var rect = canvas.getBoundingClientRect(), // abs. size of element
+						scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for x
+						scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for y
+
+					return {
+						x: (evt.clientX - rect.left) * scaleX,   // scale mouse coordinates after they have
+						y: (evt.clientY - rect.top) * scaleY     // been adjusted to be relative to element
 					}
+				}
 
 				function startDrawing(e) {
-				    isDrawing = true;
-				    draw(e);
+					isDrawing = true;
+					draw(e);
 				}
 
 				function draw(e) {
-				    if (!isDrawing) return;
+					if (!isDrawing) return;
 					if (!hasSignature) {
-									        hasSignature = true;
-									        interestButton.disabled = false;
-									    }
-				    var mousePos = getMousePos(canvas, e);
-				    context.lineWidth = 1;
-				    context.lineCap = 'round';
-				    context.lineTo(mousePos.x, mousePos.y);
-				    context.stroke();
-				    context.beginPath();
-				    context.moveTo(mousePos.x, mousePos.y);
+						hasSignature = true;
+						interestButton.disabled = false;
+					}
+					var mousePos = getMousePos(canvas, e);
+					context.lineWidth = 1;
+					context.lineCap = 'round';
+					context.lineTo(mousePos.x, mousePos.y);
+					context.stroke();
+					context.beginPath();
+					context.moveTo(mousePos.x, mousePos.y);
 				}
 
 				function stopDrawing() {
-				    isDrawing = false;
-				    context.beginPath();
+					isDrawing = false;
+					context.beginPath();
 				}
 
 				function clearSignature() {
-				    context.clearRect(0, 0, canvas.width, canvas.height);
-				    hasSignature = false;
-				    interestButton.disabled = true;
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					hasSignature = false;
+					interestButton.disabled = true;
 				}
 			</script>
 
 			<script>
 				function nextSection(sectionId) {
-					const sections = ['info', 'privacy', 'personal', 'company', 'signature'];
+					const sections = ['info', 'privacy', 'personal'];
 					const currentIndex = sections.indexOf(document.querySelector('.section.active').id);
 					const nextIndex = sections.indexOf(sectionId);
 
@@ -462,11 +418,6 @@
 
 					document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
 					document.getElementById(sectionId).classList.add('active');
-
-					// Aktualisieren Sie die Navigation
-					document.getElementById('navLeft').style.display = sectionId === 'info' ? 'none' : 'inline';
-					document.getElementById('navRight').style.display = sectionId === 'signature' ? 'none' : 'inline';
-					document.getElementById('stepInfo').textContent = `Schritt ${nextIndex + 1} von 5`;
 				}
 
 			</script>
