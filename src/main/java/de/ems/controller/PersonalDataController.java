@@ -1,64 +1,78 @@
 package de.ems.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.ems.model.PersonalData;
 import de.ems.repository.PersonalDataRepository;
+import jakarta.transaction.Transactional;
 
 @Controller
-@RequestMapping("/participants")
+@SessionAttributes("username") // Session-Attribut hinzufügen
 public class PersonalDataController {
 
-    @Autowired
-    private PersonalDataRepository personalDataRepository;
+	@Autowired
+    private final PersonalDataRepository repository;
+    
+    private static final String UPLOAD_DIR = "uploads";
 
-    @GetMapping
+    public PersonalDataController(PersonalDataRepository repository) {
+        this.repository = repository;
+    }
+
+
+    @GetMapping("/participants")
     public String listPersonalData(Model model) {
-        model.addAttribute("personalDataList", personalDataRepository.findAll());
+        model.addAttribute("personalDataList", repository.findAll());
         return "participants";
     }
 
-    @PostMapping("/update")
-    @ResponseBody
-    public ResponseEntity<?> updatePersonalData(@RequestBody PersonalData personalData) {
-        PersonalData existingData = personalDataRepository.findByUsername(personalData.getUsername());
-        if (existingData != null) {
-            // Aktualisieren Sie hier alle Felder außer dem Benutzernamen
-            existingData.setLastName(personalData.getLastName());
-            existingData.setFirstName(personalData.getFirstName());
-            // Aktualisieren Sie hier weitere Felder
-            personalDataRepository.save(existingData);
-            return ResponseEntity.ok().build();
+
+    @PostMapping("/participants/delete")
+    @Transactional
+    public String deleteParticipant(@SessionAttribute("username") String username) {
+	    repository.deleteByUsername(username);
+	    
+	    File uploadDir = new File(UPLOAD_DIR + "/" + username);
+        if (uploadDir.exists()) {
+        	try {
+				FileUtils.deleteDirectory(uploadDir);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
         }
-        return ResponseEntity.notFound().build();
+      
+        return "redirect:/participants";
+    }
+    
+    @GetMapping("/participants/edit/{username}")
+    public String editParticipant(@PathVariable String username, Model model) {
+        PersonalData participant = repository.findByUsername(username);
+        model.addAttribute("participant", participant);
+        return "edit-participant";
     }
 
-    @DeleteMapping("/{username}")
-    @ResponseBody
-    public ResponseEntity<?> deletePersonalData(@PathVariable String username) {
-        personalDataRepository.deleteByUsername(username);
-        return ResponseEntity.ok().build();
+    @PostMapping("/participants/update")
+    public String updateParticipant(@ModelAttribute PersonalData participant) {
+        repository.save(participant);
+        return "redirect:/participants";
     }
 
-    @GetMapping("/{username}")
-    @ResponseBody
-    public ResponseEntity<PersonalData> getPersonalData(@PathVariable String username) {
-        PersonalData personalData = personalDataRepository.findByUsername(username);
-        if (personalData != null) {
-            return ResponseEntity.ok(personalData);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/participants/cancel")
+    public String cancelEdit() {
+        return "redirect:/participants";
     }
 }
+
 

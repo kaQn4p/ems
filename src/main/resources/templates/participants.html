@@ -43,12 +43,28 @@
 					<td th:text="${data.email}"></td>
 					<td th:text="${data.className}"></td>
 					<td th:text="${data.graduationYear}"></td>
-					<td><img src="/images/pencil.svg" data-id="${personalData.username}" widht="20" height="20"></img></td>
-					<td><img src="/images/trash-can-outline.svg" data-id="${personalData.username}" widht="20" height="20"></img></td>
+					<td>
+					<a th:href="@{/participants/edit/{username}(username=${data.username})}" class="btn btn-warning btn-sm m-0">
+					    <img src="/images/pencil.svg" alt="Bearbeiten" title="Bearbeiten" width="20" height="20">
+					</a></td>
+					<td>
+					    <form th:action="@{/deleteProfile}" method="post" onsubmit="return confirmDelete()">
+					        <input type="hidden" name="username" th:value="${data.username}">
+					        <button type="submit" class="btn btn-danger btn-sm m-0">
+					            <img src="/images/trash-can-outline.svg" alt="Löschen" width="20" height="20">
+					        </button>
+					    </form>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	
+	<script>
+	function confirmDelete() {
+	    return confirm("Sind Sie sicher, dass Sie diesen Nutzer löschen möchten?");
+	}
+	</script>
 	
 </body>
 
