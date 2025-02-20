@@ -1,6 +1,11 @@
 package de.ems.controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +20,9 @@ import de.ems.service.WebuntisVerificationService;
 @Controller
 public class WebuntisVerificationController {
 
+	@Value("${erasmus.teachers}")
+	private String teacherList;
+	
 	@Autowired
 	private WebuntisVerificationService webuntisService;
 
@@ -34,6 +42,11 @@ public class WebuntisVerificationController {
 		if (isVerified) {
 			session.setAttribute("username", username);
 
+			String[] erasmusTeachers = teacherList.split(",");
+	        if (Arrays.asList(erasmusTeachers).contains(username)) {
+	        	return "redirect:/participants";
+	        }
+			
 			// Überprüfen, ob ein Eintrag in der PersonalData-Tabelle existiert
 			PersonalData personalData = personalDataRepository.findByUsername(username);
 
