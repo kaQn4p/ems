@@ -12,9 +12,9 @@
 </head>
 <header class="eu-header">
 	<div class="eu-header-logos">
-		<img src="/images/cuno-logo.png" alt="Schule Logo" class="eu-header-logo">
-		<img src="/images/erasmus-logo.png" alt="Erasmus+ Logo" class="eu-header-logo">
-		<img src="/images/eu-flagge.png" alt="EU Flagge" class="eu-header-flag">
+		<img src="images/cuno-logo.png" alt="Schule Logo" class="eu-header-logo">
+		<img src="images/erasmus-logo.png" alt="Erasmus+ Logo" class="eu-header-logo">
+		<img src="images/eu-flagge.png" alt="EU Flagge" class="eu-header-flag">
 		<h1>EU-Mobilitäten für Auszubildende</h1>
 	</div>
 </header>
@@ -45,13 +45,13 @@
 					<td th:text="${data.graduationYear}"></td>
 					<td>
 					<a th:href="@{/participants/edit/{username}(username=${data.username})}" class="btn btn-warning btn-sm m-0">
-					    <img src="/images/pencil.svg" alt="Bearbeiten" title="Bearbeiten" width="20" height="20">
+					    <img src="images/pencil.svg" alt="Bearbeiten" title="Bearbeiten" width="20" height="20">
 					</a></td>
 					<td>
 					    <form th:action="@{/deleteProfile}" method="post" onsubmit="return confirmDelete()">
 					        <input type="hidden" name="username" th:value="${data.username}">
 					        <button type="submit" class="btn btn-danger btn-sm m-0">
-					            <img src="/images/trash-can-outline.svg" alt="Löschen" width="20" height="20">
+					            <img src="images/trash-can-outline.svg" alt="Löschen" width="20" height="20">
 					        </button>
 					    </form>
 					</td>
